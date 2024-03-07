@@ -15,12 +15,12 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '17'
-        distribution: 'corretto'
+        distribution: 'temurin'
         cache: maven
     - name: Run the Maven verify phase
       run: mvn --batch-mode --update-snapshots verify
     - name: Copy JaCoCo HTML report
-      run: mkdir reports && cp target/site/jacoco/index.html reports
+      run: mkdir reports && cp target/site/jacoco reports
     - name: Upload coverage report
       uses: actions/upload-artifact@v4
       with:
